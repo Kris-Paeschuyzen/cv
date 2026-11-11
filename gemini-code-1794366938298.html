@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kris Paeschuyzen — IT Support & Workplace Specialist | Eagle IT Pitch</title>
+    <style>
+        :root {
+            --eagle-navy: #0a1424;
+            --eagle-card-bg: #111d33;
+            --eagle-blue: #0066cc;
+            --eagle-blue-hover: #0052a3;
+            --eagle-light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--eagle-light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        /* Fixed Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--eagle-navy);
+            border-bottom: 3px solid var(--eagle-blue);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--eagle-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--eagle-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--eagle-navy) 0%, #16263e 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4.5rem 2rem 5.5rem 2rem;
+            border-bottom: 1px solid rgba(0, 102, 204, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: var(--eagle-blue);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto;
+            color: #94a3b8;
+        }
+
+        /* Container & Cards */
+        .container {
+            max-width: 1000px;
+            margin: -2.5rem auto 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            scroll-margin-top: 90px;
+        }
+
+        h2 {
+            color: var(--eagle-navy);
+            font-size: 1.7rem;
+            margin-bottom: 1.25rem;
+            border-left: 5px solid var(--eagle-blue);
+            padding-left: 1rem;
+        }
+
+        .quote-box {
+            background: #f0f7ff;
+            border-left: 4px solid var(--eagle-blue);
+            padding: 1.25rem 1.5rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            color: #334155;
+        }
+
+        .quote-box span {
+            display: block;
+            margin-top: 0.4rem;
+            font-style: normal;
+            font-weight: bold;
+            color: var(--eagle-navy);
+        }
+
+        /* 4 Pillars Grid */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .pillar-box {
+            background: #f8fafc;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--eagle-blue);
+            border-left: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .pillar-box h3 {
+            color: var(--eagle-navy);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-box p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* CV Summary Items */
+        .cv-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cv-item {
+            display: flex;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 1.1rem 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--eagle-navy);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background-color: var(--eagle-navy);
+            color: var(--white);
+            border-top: 5px solid var(--eagle-blue);
+            scroll-margin-top: 90px;
+        }
+
+        .contact-card h2 {
+            color: var(--white);
+            border-left-color: var(--eagle-blue);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            background: var(--eagle-card-bg);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-item h3 {
+            color: var(--eagle-blue);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--eagle-blue);
+            text-decoration: underline;
+        }
+
+        .btn-linkedin {
+            display: inline-block;
+            background-color: var(--eagle-blue);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn-linkedin:hover {
+            background-color: var(--eagle-blue-hover);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 0.8rem 1rem;
+            }
+            .nav-links {
+                margin-top: 0.5rem;
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Interactive Navigation Bar -->
+    <nav>
+        <a href="#home" class="nav-logo">EAGLE IT <span>| Kris Paeschuyzen</span></a>
+        <ul class="nav-links">
+            <li><a href="#visie">Visie & Filosofie</a></li>
+            <li><a href="#pijlers">4 Pijlers Match</a></li>
+            <li><a href="#ervaring">Reële Ervaring</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Uw eigen externe IT-dienst <span>met een vertrouwd gezicht</span></h1>
+        <p>Gegrond op 20+ jaar praktijkervaring in IT-support, Modern Workplace en het ontzorgen van KMO's in de regio.</p>
+    </section>
+
+    <div class="container">
+
+        <!-- Visie Section -->
+        <section id="visie" class="card">
+            <h2>De Filosofie van Eagle IT Vertaald naar Mijn Praktijk</h2>
+            <div class="quote-box">
+                "Wij geloven in een persoonlijke aanpak zonder anonieme ticketwachtrijen. Wij treden op als uw eigen interne IT-dienst: persoonlijk bereikbaar, strategisch meedenkend en met een rotsvaste focus op stabiliteit en gemoedsrust."
+                <span>— Eagle IT Filosofie (Schoten)</span>
+            </div>
+            <p>Bij Eagle IT staat de mens en de continuïteit van de KMO centraal. Als ervaren IT Support & Workplace Specialist herken ik mij hier 100% in. Mijn hele loopbaan staat in het teken van ontzorgen: geen ingewikkelde omwegen, maar luisteren naar gebruikers, IT-drempels wegnemen en zorgen dat medewerkers met een glimlach door kunnen werken.</p>
+        </section>
+
+        <!-- Pijlers Match Section -->
+        <section id="pijlers" class="card">
+            <h2>Hoe mijn achtergrond aansluit bij Eagle IT</h2>
+            
+            <div class="grid-4">
+                <div class="pillar-box">
+                    <h3>1. Interne IT-Dienst Gevoel</h3>
+                    <p>Geen verweg-callcenter, maar een vast gezicht ter plaatse en remote. Ruim 20 jaar het aanspreekpunt voor gebruikers bij KMO's en scholen.</p>
+                </div>
+                <div class="pillar-box">
+                    <h3>2. Modern Workplace & M365</h3>
+                    <p>Ervaring met M365, Active Directory, Intune, Azure AD, hardware-uitrollen en netwerkinfrastructuur (switchen/printers).</p>
+                </div>
+                <div class="pillar-box">
+                    <h3>3. Passie & Mensentaal</h3>
+                    <p>Dankzij mijn pedagogische achtergrond leg ik IT uit zonder onnodig vakjargon. Geduldig, servicegericht en met hart voor het vak.</p>
+                </div>
+                <div class="pillar-box">
+                    <h3>4. Lokaal in de Regio</h3>
+                    <p>Woonachtig in Zoersel (vlak bij Schoten), met Rijbewijs B en maximale flexibiliteit voor snelle interventies bij klanten in de regio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reële Ervaring Section -->
+        <section id="ervaring" class="card">
+            <h2>Reële Werkervaring uit mijn CV</h2>
+            <div class="cv-summary">
+                <div class="cv-item">
+                    <div><strong>IT Support & Workplace Specialist (Projectbasis)</strong><br><small>Van Pelt-Paesen (01/2025 – 03/2026)</small></div>
+                    <div>Eerste aanspreekpunt bij fusietraject, hardware-uitrol & incidentafhandeling.</div>
+                </div>
+                <div class="cv-item">
+                    <div><strong>Service Desk & User Support Specialist</strong><br><small>Vandeputte Safety Experts (01/2021 – 12/2025)</small></div>
+                    <div>M365, Active Directory, Azure AD, Intune, remote support & ticketing.</div>
+                </div>
+                <div class="cv-item">
+                    <div><strong>ICT-Coördinator & Educator</strong><br><small>Onderwijs / VTI Zandhoven (09/2011 – 08/2021)</small></div>
+                    <div>Beheer digitale werkplekken voor 8 scholen, didactische coaching & uitrol Digisprong.</div>
+                </div>
+                <div class="cv-item">
+                    <div><strong>Opleiding & Fundamenten</strong><br><small>Professionele Bachelor Informatica</small></div>
+                    <div>CVO Antwerpen (Met onderscheiding) + Pedagogisch Bekwaamheidsdiploma.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dedicated Contact Section -->
+        <section id="contact" class="card contact-card">
+            <h2>Contact & Kennismaking</h2>
+            <p>Klaar om als vertrouwd gezicht het team van Eagle IT in Schoten te versterken? Laten mekaar ontmoeten.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>GSM / Telefoon</h3>
+                    <a href="tel:0475392879">0475 39 28 79</a>
+                </div>
+                <div class="contact-item">
+                    <h3>E-mailadres</h3>
+                    <a href="mailto:Kris.Paeschuyzen@skynet.be">Kris.Paeschuyzen@skynet.be</a>
+                </div>
+                <div class="contact-item">
+                    <h3>LinkedIn Profiel</h3>
+                    <a href="https://www.linkedin.com/in/kris-paeschuyzen-3818a3194" target="_blank" rel="noopener">linkedin.com/in/kris-paeschuyzen</a>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://www.linkedin.com/in/kris-paeschuyzen-3818a3194" target="_blank" rel="noopener" class="btn-linkedin">Bekijk Mijn LinkedIn Profiel</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Kris Paeschuyzen — Sollicitatiepitch afgestemd op Eagle IT (eagle-it.be)</p>
+    </footer>
+
+</body>
+</html>
