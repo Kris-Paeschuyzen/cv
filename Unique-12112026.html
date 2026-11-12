@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kris Paeschuyzen – Sollicitatie IT Service Support (Halen / Unique)</title>
+<style>
+/* ===== Exacte Unique Huisstijl & Kleuren ===== */
+:root {
+  --unique-dark-navy: #1C2D42;         /* Donkere topbalk achtergrond */
+  --unique-active-navy: #2B425B;       /* Actieve tab achtergrond topbalk */
+  --unique-blue: #009FE3;              /* Helder Unique actieblauw */
+  --unique-blue-dark: #0084BE;         /* Hover blauw */
+  --unique-ice-bg: #EBF4FA;            /* Lichtblauwe achtergrond van de blokken */
+  --unique-bg: #F8FAFC;                /* Pagina achtergrond */
+  --white: #ffffff;
+  --text-dark: #1E293B;
+  --text-muted: #64748B;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { 
+  background-color: var(--unique-bg); 
+  color: var(--text-dark); 
+  font-family: var(--font-body); 
+  line-height: 1.6; 
+}
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+/* Donkere Subbalk bovenaan */
+.sub-nav {
+  background-color: var(--unique-dark-navy);
+  padding: 0 24px;
+  display: flex;
+  gap: 4px;
+}
+.sub-nav-item {
+  color: #94A3B8;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sub-nav-item.active {
+  background-color: var(--unique-active-navy);
+  color: var(--white);
+}
+
+/* Fixed Header */
+header.top-nav {
+  background: var(--white);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-text {
+  color: var(--unique-blue);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.brand-text span {
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Hero Section */
+.hero {
+  background: var(--white);
+  padding: 44px 0 32px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 800;
+  color: var(--unique-dark-navy);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.hero p.sub {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  max-width: 58ch;
+}
+.hero .wie {
+  margin-top: 14px;
+  font-weight: 700;
+  color: var(--unique-blue);
+  font-size: 0.95rem;
+}
+
+/* Lichtblauw Info-Blok */
+.ice-card {
+  background: var(--unique-ice-bg);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ice-card h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.ice-card ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.ice-card li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+}
+.ice-card li strong {
+  color: var(--unique-blue);
+  font-weight: 700;
+}
+
+/* 4 Pijlers (Tabs) */
+.pijlers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 32px;
+}
+.pijler {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-align: left;
+  color: var(--unique-dark-navy);
+  cursor: pointer;
+  background: var(--white);
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 16px;
+  min-height: 85px;
+  transition: all 0.2s ease;
+}
+.pijler:hover { border-color: var(--unique-blue); }
+.pijler[aria-selected="true"] {
+  background: var(--unique-blue);
+  color: var(--white);
+  border-color: var(--unique-blue);
+  box-shadow: 0 6px 16px rgba(0, 159, 227, 0.3);
+}
+.pijler small { display: block; font-weight: 400; margin-top: 4px; opacity: 0.95; font-size: 0.82rem; }
+
+/* Grote Blauwe Tegel */
+.blue-hero-tile {
+  background: var(--unique-blue);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  margin: 30px 0 10px;
+}
+.blue-hero-tile h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.blue-hero-tile p {
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+/* Witte Kaarten met Fijne Blauwe Rand-Lijn */
+.unique-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin: 24px 0;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--unique-blue);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.unique-card h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--unique-dark-navy);
+  margin-bottom: 12px;
+}
+
+/* Puntenlijst met pijltjes (›) */
+.panel[hidden] { display: none; }
+.punten { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 14px; }
+.punten li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.96rem;
+}
+.punten li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  color: var(--unique-blue);
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+.punten b { color: var(--unique-dark-navy); }
+.waar { display: block; font-size: 0.82rem; color: var(--text-muted); margin-top: 2px; }
+
+/* Details Accordion voor CV & Match */
+details {
+  border-bottom: 1px solid #E2E8F0;
+  padding: 14px 0;
+}
+details:last-of-type { border-bottom: 0; }
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--unique-dark-navy);
+}
+summary::-webkit-details-marker { display: none; }
+summary span.meta-info { font-weight: 400; color: var(--text-muted); font-size: 0.88rem; display: flex; gap: 12px; align-items: center; }
+details[open] summary { color: var(--unique-blue); }
+details ul { margin: 10px 0 4px; padding-left: 18px; color: var(--text-muted); font-size: 0.95rem; }
+
+.badge-score {
+  background: var(--unique-ice-bg);
+  color: var(--unique-blue);
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+}
+
+/* Buttons */
+.knop-blauw {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--unique-blue);
+  color: var(--white);
+  font-weight: 700;
+  padding: 11px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.knop-blauw:hover { background: var(--unique-blue-dark); }
+
+/* Duo sectie voor Opleiding & Profiel */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.duo h3 { font-size: 1.05rem; margin: 10px 0 4px; color: var(--unique-dark-navy); }
+
+/* Footer */
+footer.contact-footer {
+  background: var(--white);
+  border-top: 1px solid #E2E8F0;
+  padding: 44px 0;
+  margin-top: 50px;
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 820px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .pijlers { grid-template-columns: 1fr 1fr; }
+  .duo { grid-template-columns: 1fr; }
+  summary { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Subtiele Donkere Topbalk -->
+<div class="sub-nav">
+  <a href="#home" class="sub-nav-item active">👤 Sollicitatie IT Service Support</a>
+  <a href="#contact" class="sub-nav-item">🏢 Unique Hasselt / Werkgever Halen</a>
+</div>
+
+<header class="top-nav">
+  <a href="#home" class="brand-wrap" aria-label="Unique en Kris Paeschuyzen">
+    <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="36" height="36" rx="6" fill="#009FE3"/>
+      <path d="M10 13V20C10 22.7614 12.2386 25 15 25C17.7614 25 20 22.7614 20 20V13H17V20C17 21.1046 16.1046 22 15 22C13.8954 22 13 21.1046 13 20V13H10Z" fill="white"/>
+      <circle cx="25" cy="12" r="1.5" fill="white"/>
+      <circle cx="28" cy="16" r="1.2" fill="white"/>
+      <circle cx="24" cy="18" r="1.4" fill="white"/>
+    </svg>
+    <div class="brand-text">unique <span>| Kris Paeschuyzen</span></div>
+  </a>
+  <a href="#contact" class="knop-blauw">Neem contact op →</a>
+</header>
+
+<main id="home">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>Sollicitatie: IT Service Support (Halen / Unique)</h1>
+          <p class="sub">Als antwoord op de vacature IT Service Support stel ik u graag feitelijk en zonder opsmuk voor hoe mijn ervaring met SQL, field support, cloudbeheer en werkplekmigraties aansluit bij jullie noden.</p>
+          <p class="wie">Kris Paeschuyzen — IT Support &amp; Workplace Specialist</p>
+        </div>
+
+        <!-- Lichtblauw Info-Blok -->
+        <aside class="ice-card" aria-label="Kernpunten in één oogopslag">
+          <h3>Kernprofiel in één oogopslag</h3>
+          <ul>
+            <li><span>Support-focus</span> <strong>1e/2e lijn &amp; Field Support</strong></li>
+            <li><span>Data &amp; Cloud</span> <strong>SQL, Azure, M365 &amp; VBA</strong></li>
+            <li><span>Mobiliteit</span> <strong>Multi-site / Benelux-ervaring</strong></li>
+            <li><span>Talen</span> <strong>NL / EN / Pragmatisch FR</strong></li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- De 4 Interactieve Pijlers -->
+      <div class="pijlers" role="tablist" aria-label="Waarom deze match werkt">
+        <button class="pijler" role="tab" id="t0" aria-controls="p0" aria-selected="true">SQL &amp; Data<small>Queries &amp; Rapportage</small></button>
+        <button class="pijler" role="tab" id="t1" aria-controls="p1" aria-selected="false">Field &amp; Multi-site<small>Baanwerk &amp; Regio's</small></button>
+        <button class="pijler" role="tab" id="t2" aria-controls="p2" aria-selected="false">Azure &amp; Scripting<small>M365, VBA &amp; PHP</small></button>
+        <button class="pijler" role="tab" id="t3" aria-controls="p3" aria-selected="false">Pragmatisch Frans<small>Telefonisch &amp; Tickets</small></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+
+    <!-- Grote Unieke Blauwe Tegel -->
+    <div class="blue-hero-tile">
+      <h2>Praktijkervaring &amp; Direct Inzetbaar</h2>
+      <p>Ondersteuning, databeheer en field service met een nuchtere en mensgerichte aanpak</p>
+    </div>
+
+    <!-- Unique Card: Waarom deze match werkt (Interactieve Panelen) -->
+    <div class="unique-card">
+      
+      <!-- Pijler 1 Paneel -->
+      <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
+        <h2>SQL, Databanken &amp; Beleidsrapportage</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Fundamentele logica en datastructuur om data vlot te analyseren, op te vragen en te corrigeren.</p>
+        <ul class="punten">
+          <li><b>SQL-diploma &amp; Basis:</b> SQL behaald als officieel onderdeel van het diploma hoger onderwijs. De fundamentele logica is aanwezig en snel weer op punt te zetten. <span class="waar">Hoger Onderwijs / CVO</span></li>
+          <li><b>Beleidsrapportage OCMW Antwerpen:</b> Verantwoordelijk voor het opstellen van de beleidsrapportages voor het diensthoofd. <span class="waar">OCMW Antwerpen</span></li>
+          <li><b>MS-SQL &amp; ColdFusion/PHP:</b> Webapplicaties en datakoppelingen gebouwd tussen Microsoft SQL Server en webpagina's voor onder meer Bol.com, ZDNet.be en computermagazines. <span class="waar">Professionele ervaring</span></li>
+        </ul>
+      </div>
+
+      <!-- Pijler 2 Paneel -->
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
+        <h2>Field Support &amp; Multi-site Ervaring</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Verplaatsingen en ondersteuning op locatie zijn een ingebakken routine.</p>
+        <ul class="punten">
+          <li><b>Multi-site Beheer (8 Scholen):</b> Verantwoordelijk voor 8 verschillende scholen verspreid over Groot-Antwerpen (Linkeroever, Berendrecht/Zandvliet, Centrum, Malle, Schilde) met continue verplaatsingen op de baan. <span class="waar">Onderwijservaring</span></li>
+          <li><b>Internationale &amp; Regionale Sites:</b> Ondersteuning op locatie voor vestigingen in binnen- en buitenland (Jumet, Teteringen Nederland, Parijs) bij Vandeputte en regionale vestigingen (Limburg, Zoersel, Wijnegem) bij Van Pelt - Paesen. <span class="waar">Vandeputte Safety Experts &amp; Van Pelt - Paesen Beton</span></li>
+        </ul>
+      </div>
+
+      <!-- Pijler 3 Paneel -->
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+        <h2>Azure, Cloud &amp; Scripting</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Solide cloud-kennis en script-vaardigheden voor efficiënt beheer.</p>
+        <ul class="punten">
+          <li><b>Azure &amp; M365 Omgeving:</b> Ervaring met Entra ID, serienummer-tracking in Azure, SharePoint, Exchange Online en Teams. <span class="waar">Vandeputte Safety Experts</span></li>
+          <li><b>Scripting &amp; Automatisering:</b> Ervaring met VBA en gelijkaardige scriptingtaal in Google Sheets, alsook koppelingen tussen databases en interfaces. <span class="waar">Praktijkervaring</span></li>
+          <li><b>Specialistische Software &amp; HL7:</b> Geen directe voorkennis van het specifieke medische pakket, maar door mijn achtergrond in datakoppelingen en leergierigheid snel eigen te maken. <span class="waar">Groeipad</span></li>
+        </ul>
+      </div>
+
+      <!-- Pijler 4 Paneel -->
+      <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+        <h2>Pragmatische Communicatie &amp; Frans</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Geen verkooppraatjes, maar vlot bereikbaar, behulpzaam en gestructureerd.</p>
+        <ul class="punten">
+          <li><b>Drempelloos opnemen:</b> Extrovert genoeg om vlot de telefoon op te nemen en Franstalige collega's direct zelf te woord te staan zonder door te verbinden.</li>
+          <li><b>Strakke Ticket-reflex:</b> Vraagt steeds om een e-mail ter bevestiging, zodat het incident direct in het ticketsysteem staat en informatie uit de eerste hand geborgd blijft.</li>
+          <li><b>Moderne Ondersteuning:</b> Slim gebruik van hulpmiddelen zoals Google Translate en het herlezen van e-mails om vaktermen snel en correct op te pikken.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Uitklapbare CV-Match & Competentie-koppeling Card met bescheiden scores -->
+    <div class="unique-card">
+      <h2>CV-Match: Onderbouwing &amp; Scores</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">Een feitelijke koppeling van jullie vacature-eisen aan mijn reële praktijk:</p>
+      
+      <details>
+        <summary>
+          <span>1e &amp; 2e Lijns Support &amp; Werkplekbeheer</span>
+          <span class="meta-info"><span class="badge-score">Match: 95%</span> <span>Lees toelichting ↓</span></span>
+        </summary>
+        <ul>
+          <li>Ruime ervaring met installatie, configuratie, asset tracking en het ondersteunen van eindgebruikers bij acute en dagelijkse IT-vragen.</li>
+          <li><span class="waar">Onderbouwd vanuit: Vandeputte Safety Experts &amp; Van Pelt - Paesen Beton</span></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>
+          <span>SQL &amp; Databeheer (Must-have)</span>
+          <span class="meta-info"><span class="badge-score">Match: 85%</span> <span>Lees toelichting ↓</span></span>
+        </summary>
+        <ul>
+          <li>SQL-diploma behaald in het hoger onderwijs, ervaring met beleidsrapportage bij OCMW Antwerpen en MS-SQL databasekoppelingen voor Bol.com en ZDNet.be. Bereidheid om op te frissen.</li>
+          <li><span class="waar">Onderbouwd vanuit: Opleiding &amp; Webprojecten</span></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>
+          <span>Azure, Cloud &amp; Scripting</span>
+          <span class="meta-info"><span class="badge-score">Match: 88%</span> <span>Lees toelichting ↓</span></span>
+        </summary>
+        <ul>
+          <li>Ervaring met Azure, Entra ID, M365 (Exchange, SharePoint, Teams), VBA-scripting en automatiseringen in Google Sheets.</li>
+          <li><span class="waar">Onderbouwd vanuit: Vandeputte Safety Experts &amp; Eigen Projecten</span></li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>
+          <span>Field Support &amp; Franstalige Communicatie</span>
+          <span class="meta-info"><span class="badge-score">Match: 85%</span> <span>Lees toelichting ↓</span></span>
+        </summary>
+        <ul>
+          <li>Gewoon om op de baan te zijn (8 scholen en internationale vestigingen). Pragmatische en directe aanpak voor Franstalige telefoontjes met strakke registratie in e-mail/ticket.</li>
+          <li><span class="waar">Onderbouwd vanuit: Onderwijs, Vandeputte &amp; Van Pelt</span></li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- Reële CV Sectie -->
+    <div class="unique-card">
+      <h2>Mijn Reële CV &amp; Werkervaring</h2>
+      
+      <details open>
+        <summary>IT Support &amp; Workplace Specialist <span class="meta-info">Van Pelt - Paesen Beton (september 2025 – januari 2026)</span></summary>
+        <ul>
+          <li>Eerste aanspreekpunt bij fusietrajecten, hardware-uitrol, serienummer-tracking en asset management in Azure.</li>
+          <li>Verplaatsingen en support op locatie over diverse vestigingen (Limburg, Zoersel, Wijnegem).</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Service Desk &amp; User Support Specialist <span class="meta-info">Vandeputte Safety Experts (juli 2022 – januari 2025)</span></summary>
+        <ul>
+          <li>Beheer van Microsoft 365, Azure AD, Intune, Exchange Online, Teams en tweedelijns support.</li>
+          <li>Field support op afstand en op locatie bij vestigingen in Jumet, Teteringen (NL) en Parijs.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>ICT-Coördinator &amp; Educator <span class="meta-info">Onderwijs / VTI Zandhoven (september 2011 – augustus 2021)</span></summary>
+        <ul>
+          <li>Verantwoordelijk voor het IT-beleid en beheer van 8 basisscholen verspreid over Groot-Antwerpen.</li>
+          <li>Migraties naar cloudomgevingen en didactische ondersteuning van eindgebruikers.</li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- Opleiding & Profiel Card -->
+    <div class="unique-card duo">
+      <div>
+        <h2>Opleiding</h2>
+        <h3>Professionele Bachelor Informatica</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">CVO Antwerpen, met grote onderscheiding (84,38%). Inclusief officieel SQL-diploma.</p>
+        <h3>Educatief Bekwaamheidsdiploma</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Basis voor heldere communicatie, geduld en sterke didactische vaardigheden.</p>
+      </div>
+      <div>
+        <h2>Profiel &amp; Regio</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Nuchter, stressbestendig, punctueel en mensgericht. Geen pretenties, wel het vermogen om IT te laten werken voor de mensen.</p>
+        <h3>Regio</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Antwerpen, Halen / Limburg en de Benelux.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="contact-footer" id="contact">
+  <div class="wrap" style="text-align: center;">
+    <h2 style="font-size: 1.5rem; margin-bottom: 10px; color: var(--unique-dark-navy);">Zullen we kennismaken?</h2>
+    <p style="color: var(--text-muted); margin-bottom: 22px; font-size: 0.95rem;">Bel mij op <strong><a href="tel:+32475392879" style="color: inherit; text-decoration: none;">0475 39 28 79</a></strong> of mail naar <strong><a href="mailto:Kris.Paeschuyzen@skynet.be" style="color: inherit; text-decoration: none;">Kris.Paeschuyzen@skynet.be</a></strong></p>
+    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <a href="mailto:Kris.Paeschuyzen@skynet.be?subject=Vacature%20IT%20Service%20Support%20Halen" class="knop-blauw">Stuur een e-mail →</a>
+      <a href="https://www.linkedin.com/in/kris-paeschuyzen-3818a3194" target="_blank" rel="noopener" class="knop-blauw" style="background: var(--unique-dark-navy);">Bekijk LinkedIn</a>
+    </div>
+    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 28px; max-width: 60ch; margin-left: auto; margin-right: auto;">
+      Deze pagina is een persoonlijk code-experiment met AI als technische sparringpartner — gebouwd om continu bij te leren, te innoveren en de grenzen van moderne tools op te zoeken.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function kies(i,focus){
+    tabs.forEach(function(t,n){
+      var actief=n===i;
+      t.setAttribute('aria-selected',actief);
+      t.tabIndex=actief?0:-1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!actief;
+    });
+    if(focus)tabs[i].focus();
+  }
+  tabs.forEach(function(t,i){
+    t.tabIndex=i===0?0:-1;
+    t.addEventListener('click',function(){kies(i)});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight')kies((i+1)%tabs.length,true);
+      if(e.key==='ArrowLeft')kies((i+tabs.length-1)%tabs.length,true);
+    });
+  });
+})();
+</script>
+</body>
+</html>
