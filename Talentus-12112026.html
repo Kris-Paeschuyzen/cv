@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kris Paeschuyzen – Sollicitatie Junior IT-medewerker (Talentus)</title>
+<style>
+/* ===== Talentus Huisstijl & Kleuren ===== */
+:root {
+  --talentus-green: #7AC143;          /* Primaire actieknop groen */
+  --talentus-green-dark: #008240;     /* Hover groen */
+  --talentus-blue: #2563eb;           /* Kaart-accent blauw */
+  --talentus-navy: #0f172a;           /* Tekst & headers */
+  --talentus-bg: #f4f7f6;             /* Achtergrond */
+  --white: #ffffff;
+  --text-muted: #475569;
+  --font-body: 'Segoe UI', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { 
+  background-color: var(--talentus-bg); 
+  color: var(--talentus-navy); 
+  font-family: var(--font-body); 
+  line-height: 1.6; 
+}
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+/* Fixed Header */
+header.top-nav {
+  background: var(--white);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.brand-logo { font-size: 1.3rem; font-weight: 700; color: #00A651; text-decoration: none; }
+.brand-logo span { color: var(--talentus-navy); font-weight: 400; font-size: 0.95rem; }
+
+/* Hero Section */
+.hero {
+  background: var(--white);
+  padding: 50px 0 36px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.hero h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--talentus-navy);
+  margin-bottom: 10px;
+}
+.hero p.sub {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 65ch;
+}
+.hero .wie {
+  margin-top: 14px;
+  font-weight: 600;
+  color: var(--talentus-navy);
+  font-size: 0.92rem;
+}
+
+/* 4 Pijlers (Tabs) */
+.pijlers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+}
+.pijler {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: left;
+  color: var(--talentus-navy);
+  cursor: pointer;
+  background: var(--white);
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  min-height: 85px;
+  transition: all 0.2s ease;
+}
+.pijler:hover { border-color: var(--talentus-blue); }
+.pijler[aria-selected="true"] {
+  background: var(--talentus-green);
+  color: var(--white);
+  border-color: var(--talentus-green);
+  box-shadow: 0 4px 12px rgba(122, 193, 67, 0.3);
+}
+.pijler small { display: block; font-weight: 400; margin-top: 4px; opacity: 0.9; font-size: 0.8rem; }
+
+/* Talentus Card met Blauwe Rand-Accent */
+.talentus-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 28px 0;
+  border: 1px solid #e2e8f0;
+  box-shadow: 6px 6px 0px var(--talentus-blue);
+  position: relative;
+}
+
+.talentus-card h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--talentus-navy);
+  margin-bottom: 14px;
+}
+
+/* Puntenlijst */
+.panel[hidden] { display: none; }
+.punten { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 14px; }
+.punten li {
+  padding-left: 16px;
+  border-left: 4px solid var(--talentus-green);
+  max-width: 68ch;
+  font-size: 0.95rem;
+}
+.punten b { color: var(--talentus-navy); }
+.waar { display: block; font-size: 0.82rem; color: var(--text-muted); margin-top: 2px; }
+
+/* Details Accordion voor CV & Match */
+details {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 0;
+}
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--talentus-navy);
+}
+summary::-webkit-details-marker { display: none; }
+summary span.meta-info { font-weight: 400; color: var(--text-muted); font-size: 0.88rem; display: flex; gap: 12px; align-items: center; }
+details[open] summary { color: var(--talentus-blue); }
+details ul { margin: 10px 0 4px; padding-left: 18px; color: var(--text-muted); font-size: 0.95rem; }
+
+.badge-score {
+  background: #f1f5f9;
+  color: var(--talentus-blue);
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+}
+
+/* Buttons */
+.knop-groen {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--talentus-green);
+  color: var(--white);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.knop-groen:hover { background: var(--talentus-green-dark); }
+
+/* Duo sectie voor Opleiding & Profiel */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.duo h3 { font-size: 1.05rem; margin: 10px 0 4px; color: var(--talentus-navy); }
+
+/* Footer */
+footer.contact-footer {
+  background: var(--white);
+  border-top: 1px solid #e2e8f0;
+  padding: 44px 0;
+  margin-top: 50px;
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 768px) {
+  .pijlers { grid-template-columns: 1fr 1fr; }
+  .duo { grid-template-columns: 1fr; }
+  summary { flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<header class="top-nav">
+  <a href="#home" class="brand-logo">talentus <span>| Kris Paeschuyzen</span></a>
+  <a href="#contact" class="knop-groen">Neem contact op →</a>
+</header>
+
+<main class="wrap" id="home">
+
+  <!-- Hero Header -->
+  <section class="hero">
+    <h1>Sollicitatie: Junior IT-medewerker (Talentus)</h1>
+    <p class="sub">Met meer dan 20 jaar praktijkervaring in IT-support, werkplekbeheer en helpdeskoperaties licht ik hieronder graag toe hoe mijn achtergrond aansluit bij jullie vacature.</p>
+    <p class="wie">Kris Paeschuyzen — IT Support &amp; Workplace Specialist</p>
+
+    <!-- De 4 Interactieve Pijlers -->
+    <div class="pijlers" role="tablist" aria-label="Waarom deze match werkt">
+      <button class="pijler" role="tab" id="t0" aria-controls="p0" aria-selected="true">Werkplekbeheer<small>Intune, M365 & Azure</small></button>
+      <button class="pijler" role="tab" id="t1" aria-controls="p1" aria-selected="false">Support & Triage<small>Tickets & Security</small></button>
+      <button class="pijler" role="tab" id="t2" aria-controls="p2" aria-selected="false">Asset Lifecycle<small>Tracking & Inname</small></button>
+      <button class="pijler" role="tab" id="t3" aria-controls="p3" aria-selected="false">Mensgerichte IT<small>Rust & Uitleg</small></button>
+    </div>
+  </section>
+
+  <!-- Talentus Card: Waarom deze match werkt (Interactieve Panelen) -->
+  <div class="talentus-card">
+    
+    <!-- Pijler 1 Paneel -->
+    <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
+      <h2>Waarom deze match werkt: Werkplekbeheer</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Van Azure device-koppeling tot geautomatiseerde software-distributie.</p>
+      <ul class="punten">
+        <li><b>Microsoft 365 & Intune:</b> Centraal beheren en uitrollen van softwarepakketten en updates om versieversnippering te voorkomen.<span class="waar">Vandeputte Safety Experts & Van Pelt-Paesen</span></li>
+        <li><b>Azure Active Directory (Entra ID):</b> Volledige device-koppelingen, gebruikersbeheer en toegangscontrole.<span class="waar">Cloud-ervaring</span></li>
+      </ul>
+    </div>
+
+    <!-- Pijler 2 Paneel -->
+    <div class="panel" role="tabpanel" id="p1" aria-labelledby="p1-panel" hidden>
+      <h2>Waarom deze match werkt: Support & Triage</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Kalmte bewaren bij piekdrukte en snelle ticket-afhandeling.</p>
+      <ul class="punten">
+        <li><b>1e & 2e Lijns Support:</b> Dagelijkse ondersteuning op afstand en on-site met strakke SLA-opvolging en centrale ticket-sync.<span class="waar">Alle werkgevers</span></li>
+        <li><b>Security Triage:</b> Preventief isoleren en analyseren van verdachte e-mails (phishing) via Exchange Online.<span class="waar">Vandeputte Safety Experts</span></li>
+      </ul>
+    </div>
+
+    <!-- Pijler 3 Paneel -->
+    <div class="panel" role="tabpanel" id="p2" aria-labelledby="p2-panel" hidden>
+      <h2>Waarom deze match werkt: Asset Lifecycle</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Traceerbaarheid en secure handling van hardware-vloten.</p>
+      <ul class="punten">
+        <li><b>Serienummer-tracking:</b> Volledige registratie van inname, uitgifte en afdelingstoewijzingen in Azure.<span class="waar">Van Pelt-Paesen Beton</span></li>
+        <li><b>Hardware-scheiding:</b> Secuur archiveren en scheiden van randapparatuur en bekabeling bij vervangingstrajecten.<span class="waar">Praktijkervaring</span></li>
+      </ul>
+    </div>
+
+    <!-- Pijler 4 Paneel -->
+    <div class="panel" role="tabpanel" id="p3" aria-labelledby="p3-panel" hidden>
+      <h2>Waarom deze match werkt: Mensgerichte IT</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">De brug slaan tussen complexe techniek en de eindgebruiker.</p>
+      <ul class="punten">
+        <li><b>Pedagogische rust:</b> Technische vraagstukken helder uitleggen, geduldig luisteren en drempels wegnemen bij gebruikers.<span class="waar">Onderwijservaring & IT-support</span></li>
+        <li><b>Kennisborging:</b> SharePoint-wiki's en handleidingen opstellen voor vlotte onboarding en eenduidige procedures.<span class="waar">VTI Zandhoven</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Uitklapbare CV-Match & Competentie-koppeling Card met bescheiden scores -->
+  <div class="talentus-card">
+    <h2>CV-Match: Onderbouwing &amp; Scores</h2>
+    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">Een feitelijke koppeling van jullie vacature-eisen aan mijn reële praktijk:</p>
+    
+    <details>
+      <summary>
+        <span>Modern Workspace & Intune / M365</span>
+        <span class="meta-info"><span class="badge-score">Match: 95%</span> <span>Lees toelichting ↓</span></span>
+      </summary>
+      <ul>
+        <li>Jarenlange praktijkervaring met identiteitsbeheer, configuratie en geautomatiseerde uitrol van werkplekken en mobiele apparaten.</li>
+        <li><span class="waar">Onderbouwd vanuit: Vandeputte Safety Experts & Van Pelt-Paesen</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>
+        <span>Support & Incident Management</span>
+        <span class="meta-info"><span class="badge-score">Match: 98%</span> <span>Lees toelichting ↓</span></span>
+      </summary>
+      <ul>
+        <li>Eerste- en tweedelijnsondersteuning, ticket-afhandeling, SLA-opvolging en het bewaren van kalmte bij acute storingen of drukte.</li>
+        <li><span class="waar">Onderbouwd vanuit: Alle werkgevers & onderwijservaring</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>
+        <span>Documentatie & Asset Tracking</span>
+        <span class="meta-info"><span class="badge-score">Match: 92%</span> <span>Lees toelichting ↓</span></span>
+      </summary>
+      <ul>
+        <li>Het helder uitschrijven van procedures in SharePoint/wiki's en volledige serienummer-registratie in Azure.</li>
+        <li><span class="waar">Onderbouwd vanuit: VTI Zandhoven & Bedrijfs-IT</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>
+        <span>Basisinfrastructuur & Connectiviteit</span>
+        <span class="meta-info"><span class="badge-score">Match: 88%</span> <span>Lees toelichting ↓</span></span>
+      </summary>
+      <ul>
+        <li>Solide basis in netwerkconcepten (TCP/IP, DNS, DHCP, VPN) en proactieve compatibiliteitstesten.</li>
+        <li><span class="waar">Onderbouwd vanuit: Praktische IT-achtergrond</span></li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- Reële CV Sectie in een derde Talentus Card -->
+  <div class="talentus-card">
+    <h2>Mijn Reële CV & Werkervaring</h2>
+    
+    <details open>
+      <summary>IT Support & Workplace Specialist (Projectbasis) <span class="meta-info">Van Pelt - Paesen Beton (09/2025 – 01/2026)</span></summary>
+      <ul>
+        <li>Eerste aanspreekpunt bij fusietrajecten, hardware-uitrol en serienummer-tracking in Azure.</li>
+        <li>Asset management, inname/uitgifte en incidentafhandeling met strakke opvolging.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Service Desk & User Support Specialist <span class="meta-info">Vandeputte Safety Experts (07/2022 – 01/2025)</span></summary>
+      <ul>
+        <li>Beheer van Microsoft 365, Active Directory, Azure AD en Intune (software-distributie).</li>
+        <li>Tweedelijns support op afstand en on-site met sterke focus op gebruikervaring.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>ICT-Coördinator & Educator <span class="meta-info">Onderwijs / VTI Zandhoven (09/2011 – 08/2021)</span></summary>
+      <ul>
+        <li>Verantwoordelijk voor IT-beleid op 8 locaties en migraties naar cloudomgevingen.</li>
+        <li>Didactische begeleiding en opstellen van heldere instructies voor eindgebruikers.</li>
+      </ul>
+    </details>
+  </div>
+
+  <!-- Opleiding & Profiel Card -->
+  <div class="talentus-card duo">
+    <div>
+      <h2>Opleiding</h2>
+      <h3>Professionele Bachelor Informatica</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">CVO Antwerpen, met grote onderscheiding (84,38%).</p>
+      <h3>Educatief Bekwaamheidsdiploma</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Basis voor mijn sterke communicatieve vaardigheden en heldere uitleg.</p>
+    </div>
+    <div>
+      <h2>Profiel & Regio</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Nuchter, stressbestendig, punctueel en mensgericht. Ik zorg dat IT werkt voor de mensen die er mee moeten werken.</p>
+      <h3>Regio</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Antwerpen en Turnhout.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="contact-footer" id="contact">
+  <div class="wrap" style="text-align: center;">
+    <h2 style="font-size: 1.5rem; margin-bottom: 10px; color: var(--talentus-navy);">Zullen we kennismaken?</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">Bel mij op <strong><a href="tel:+32475392879" style="color: inherit; text-decoration: none;">0475 39 28 79</a></strong> of mail naar <strong><a href="mailto:Kris.Paeschuyzen@skynet.be" style="color: inherit; text-decoration: none;">Kris.Paeschuyzen@skynet.be</a></strong></p>
+    <div style="display: flex; justify-content: center; gap: 16px;">
+      <a href="mailto:Kris.Paeschuyzen@skynet.be?subject=Vacature%20Junior%20IT-medewerker" class="knop-groen">Stuur een e-mail →</a>
+      <a href="https://www.linkedin.com/in/kris-paeschuyzen-3818a3194" target="_blank" rel="noopener" class="knop-groen" style="background: var(--talentus-blue);">Bekijk LinkedIn</a>
+    </div>
+    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 28px; max-width: 60ch; margin-left: auto; margin-right: auto;">
+      Deze pagina is een persoonlijk code-experiment met AI als technische sparringpartner — gebouwd om continu bij te leren, te innoveren en de grenzen van moderne tools op te zoeken.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function kies(i,focus){
+    tabs.forEach(function(t,n){
+      var actief=n===i;
+      t.setAttribute('aria-selected',actief);
+      t.tabIndex=actief?0:-1;
+      var panelId = t.getAttribute('aria-controls');
+      var panel = document.getElementById(panelId);
+      if(panel) panel.hidden = !actief;
+    });
+    if(focus)tabs[i].focus();
+  }
+  tabs.forEach(function(t,i){
+    t.tabIndex=i===0?0:-1;
+    t.addEventListener('click',function(){kies(i)});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight')kies((i+1)%tabs.length,true);
+      if(e.key==='ArrowLeft')kies((i+tabs.length-1)%tabs.length,true);
+    });
+  });
+})();
+</script>
+</body>
+</html>
