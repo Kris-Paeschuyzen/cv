@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kris Paeschuyzen – Sollicitatie First Line Service Desk (On IT)</title>
+<style>
+:root {
+  --onit-turquoise: #00B8B0;
+  --onit-turquoise-hover: #009991;
+  --onit-navy: #062B49;
+  --onit-topbar: #041E33;
+  --onit-bg: #F8FAFC;
+  --white: #ffffff;
+  --text-muted: #64748B;
+  --font-body: 'Segoe UI', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { 
+  background-color: var(--onit-bg); 
+  color: var(--onit-navy); 
+  font-family: var(--font-body); 
+  line-height: 1.6; 
+}
+
+/* Top utility bar */
+.top-utility {
+  background-color: var(--onit-topbar);
+  color: var(--white);
+  font-size: 0.82rem;
+  padding: 8px 32px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+.top-utility a {
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.top-utility a:hover { opacity: 1; text-decoration: underline; }
+
+/* Main Navigation Header */
+header.main-nav {
+  background: var(--white);
+  padding: 16px 32px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo-pill {
+  background-color: var(--onit-turquoise);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.35rem;
+  padding: 6px 18px;
+  border-radius: 24px;
+  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+.logo-pill span {
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-left: 8px;
+  opacity: 0.9;
+  border-left: 1px solid rgba(255,255,255,0.4);
+  padding-left: 8px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.nav-links a {
+  color: var(--onit-navy);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--onit-turquoise); }
+
+/* Hero Section */
+.hero-section {
+  background-color: var(--onit-turquoise);
+  color: var(--white);
+  padding: 60px 32px 80px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.hero-content h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.hero-content p {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  margin-bottom: 24px;
+  max-width: 58ch;
+}
+.hero-btn {
+  background-color: var(--onit-navy);
+  color: var(--white);
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 28px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 14px rgba(6, 43, 73, 0.3);
+  transition: background 0.2s;
+}
+.hero-btn:hover { background-color: #041e33; }
+
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.candidate-card-preview {
+  background: var(--white);
+  color: var(--onit-navy);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  max-width: 380px;
+  width: 100%;
+}
+.candidate-card-preview h3 { font-size: 1.1rem; color: var(--onit-turquoise); margin-bottom: 6px; }
+.candidate-card-preview p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; }
+.badge-match {
+  background: #EBF8F7;
+  color: var(--onit-turquoise);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Main Content Container */
+.container {
+  max-width: 1200px;
+  margin: -40px auto 60px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Interactive Service Grid / Tabs matching On IT layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+.service-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: var(--font-body);
+}
+.service-card:hover {
+  border-color: var(--onit-turquoise);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+/* Active card: dark navy background with turquoise/white contrast so it clearly stands out */
+.service-card.active {
+  background-color: var(--onit-navy);
+  color: var(--white);
+  border: 3px solid var(--onit-turquoise);
+  box-shadow: 0 8px 24px rgba(6, 43, 73, 0.25);
+  transform: translateY(-2px);
+}
+.service-card.active h3 { 
+  color: var(--onit-turquoise); 
+}
+.service-card.active p { 
+  color: var(--white); 
+  opacity: 0.9;
+}
+.service-card h3 {
+  font-size: 1.25rem;
+  color: var(--onit-turquoise);
+  margin-bottom: 10px;
+}
+.service-card p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+/* Content panels controlled by the top 3 cards */
+.panel-container {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px;
+  margin-bottom: 40px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.panel { display: none; }
+.panel.active { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel h2 {
+  font-size: 1.4rem;
+  color: var(--onit-navy);
+  margin-bottom: 16px;
+}
+.panel ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.panel li {
+  padding-left: 16px;
+  border-left: 4px solid var(--onit-turquoise);
+  font-size: 0.98rem;
+}
+.panel li b { color: var(--onit-navy); }
+.waar { display: block; font-size: 0.82rem; color: var(--text-muted); margin-top: 2px; }
+
+/* Detailed Application Section */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--onit-navy);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.detail-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px;
+  margin-bottom: 30px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.detail-card h2 {
+  font-size: 1.4rem;
+  color: var(--onit-navy);
+  margin-bottom: 16px;
+}
+.detail-card ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.detail-card li {
+  padding-left: 16px;
+  border-left: 4px solid var(--onit-turquoise);
+  font-size: 0.98rem;
+}
+
+/* Footer */
+footer.onit-footer {
+  background: var(--onit-topbar);
+  color: var(--white);
+  padding: 40px 24px;
+  text-align: center;
+}
+footer.onit-footer p { opacity: 0.8; font-size: 0.9rem; margin-bottom: 16px; }
+.footer-contact {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.footer-contact a { color: var(--onit-turquoise); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hero-section { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; }
+  .hero-visual { justify-content: center; margin-top: 30px; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-utility">
+    <a href="#">Support</a>
+    <a href="#">Webinars</a>
+    <a href="#">Client Portal</a>
+    <a href="#">Status Page</a>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="main-nav">
+    <a href="#" class="logo-pill">
+      on IT <span>First Line Desk</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#profiel">Profiel</a>
+      <a href="#ervaring">Ervaring</a>
+      <a href="#match">Match &amp; Tools</a>
+      <a href="#contact" style="color: var(--onit-turquoise);">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Personal & Catchy Copy -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Rust, structuur en 20+ jaar IT-ervaring aan de First Line</h1>
+      <p>Als nuchtere en stressbestendige IT Support Engineer uit de regio (Zoersel/Malle) sta ik klaar om de helpdesk of managed services van On IT te versterken. Direct inzetbaar om eindgebruikers vlot en met een glimlach verder te helpen.</p>
+      <a href="#contact" class="hero-btn">Laten we kennismaken →</a>
+    </div>
+    <div class="hero-visual">
+      <div class="candidate-card-preview">
+        <h3>Kris Paeschuyzen</h3>
+        <p>Specialist in Zendesk ticketing, remote support (AnyDesk/TeamViewer), M365 en mensgerichte IT.</p>
+        <span class="badge-match">Match Score: 98% (Malle)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="container" id="profiel">
+
+    <!-- Interactive Top 3 Service Cards (Clickable Tabs) -->
+    <div class="services-grid">
+      <button class="service-card active" onclick="switchTab(0)">
+        <h3>1. Remote Support</h3>
+        <p>AnyDesk, VNC, TeamViewer &amp; externe beheerstoegang.</p>
+      </button>
+      <button class="service-card" onclick="switchTab(1)">
+        <h3>2. Zendesk Ticketing</h3>
+        <p>Mail-to-ticket, SLA-opvolging &amp; gestructureerde triage.</p>
+      </button>
+      <button class="service-card" onclick="switchTab(2)">
+        <h3>3. Crisismanagement</h3>
+        <p>Bewezen rust onder druk &amp; praktische oplossingen.</p>
+      </button>
+    </div>
+
+    <!-- Dynamic Panel Container -->
+    <div class="panel-container">
+      <div class="panel active" id="panel-0">
+        <h2>Waarom deze match werkt: Remote Support &amp; Beheertoegang</h2>
+        <ul>
+          <li><b>AnyDesk, VNC &amp; TeamViewer:</b> Dagelijks intensief gebruikt voor snelle remote sessies, schermovernames en probleemoplossing bij eindgebruikers. <span class="waar">Vandeputte Safety Experts &amp; Van Pelt-Paesen</span></li>
+          <li><b>Externe Beheerders:</b> Ervaren in het opzetten en beheren van beveiligde toegang tot VMware-omgevingen voor externe specialisten en leveranciers. <span class="waar">Bedrijfs-IT &amp; Onderwijs</span></li>
+        </ul>
+      </div>
+
+      <div class="panel" id="panel-1">
+        <h2>Waarom deze match werkt: Zendesk Ticketing &amp; Triage</h2>
+        <ul>
+          <li><b>Mail-to-Ticket Conversie:</b> Inkomende e-mails direct omzetten naar gestructureerde tickets met volledige historiek voor zowel gebruiker als de IT-afdeling. <span class="waar">Zendesk Praktijkervaring</span></li>
+          <li><b>SLA &amp; Escalatie:</b> Efficiënt opvolgen van statussen, toewijzen aan collega's of tijdig doorverwijzen naar tweedelijns specialisten. <span class="waar">Alle werkgevers</span></li>
+        </ul>
+      </div>
+
+      <div class="panel" id="panel-2">
+        <h2>Waarom deze match werkt: Crisismanagement &amp; Rust onder Druk</h2>
+        <ul>
+          <li><b>Bewezen Praktijkvoorbeeld:</b> Zoals een collega die vlak voor een belangrijke presentatie bij BASF geen serververbinding kreeg door netwerkrestricties; direct geholpen via een mobiele hotspot. <span class="waar">Bewezen flexibiliteit</span></li>
+          <li><b>Empathie &amp; Rust:</b> Paniek wegnemen bij eindgebruikers en stapsgewijs naar een werkende oplossing toewerken met heldere communicatie. <span class="waar">Pedagogische achtergrond</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title" id="match">CV-Match &amp; Kerncompetenties</h2>
+
+    <div class="detail-card">
+      <h2>Modern Workplace &amp; Microsoft 365</h2>
+      <ul>
+        <li>Volledig gebruikersbeheer, Entra ID (Azure AD), Exchange Online en software-updates via Microsoft Intune.</li>
+        <li><b>Onderbouwd vanuit:</b> Vandeputte Safety Experts &amp; Van Pelt-Paesen Beton.</li>
+      </ul>
+    </div>
+
+    <div class="detail-card">
+      <h2>Netwerken, Security &amp; Backups</h2>
+      <ul>
+        <li>Solide basis in TCP/IP, DNS, DHCP, OpenVPN en security triage (o.a. phishing-analyses in Exchange Online).</li>
+        <li><b>Onderbouwd vanuit:</b> Jarenlange praktijkervaring in kmo- en onderwijsomgevingen.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Footer / Contact -->
+  <footer class="onit-footer" id="contact">
+    <div class="footer-contact">
+      Klaar voor kennismaking? Bel <a href="tel:+32475392879">0475 39 28 79</a> ou mail naar <a href="mailto:Kris.Paeschuyzen@skynet.be">Kris.Paeschuyzen@skynet.be</a>
+    </div>
+    <p>Kris Paeschuyzen — Sollicitatie First Line Service Desk (On IT - Malle)</p>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 24px; max-width: 60ch; margin-left: auto; margin-right: auto; opacity: 0.85;">
+      Deze pagina is een persoonlijk code-experiment met AI als technische sparringpartner — gebouwd om continu bij te leren, te innoveren en de grenzen van moderne tools op te zoeken.
+    </p>
+</footer>
+
+<script>
+function switchTab(index) {
+  // Update buttons
+  const cards = document.querySelectorAll('.service-card');
+  cards.forEach((card, idx) => {
+    if (idx === index) {
+      card.classList.add('active');
+    } else {
+      card.classList.remove('active');
+    }
+  });
+
+  // Update panels
+  const panels = document.querySelectorAll('.panel');
+  panels.forEach((panel, idx) => {
+    if (idx === index) {
+      panel.classList.add('active');
+    } else {
+      panel.classList.remove('active');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
