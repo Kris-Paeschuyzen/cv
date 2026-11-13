@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kris Paeschuyzen – Spontane Sollicitatie Phished.io | Demo &amp; Awareness Specialist</title>
+<style>
+:root {
+  --phished-navy: #0B192C;
+  --phished-navy-light: #132640;
+  --phished-card: #172B49;
+  --phished-teal: #4FD1C5;
+  --phished-teal-hover: #38B2AC;
+  --phished-coral: #F56565;
+  --white: #FFFFFF;
+  --text-light: #CBD5E1;
+  --text-muted: #94A3B8;
+  --font-body: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--phished-navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* Navigation Header */
+header.main-nav {
+  background-color: rgba(11, 25, 44, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 18px 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  text-decoration: none;
+}
+.brand-logo .hook-badge {
+  background: var(--phished-teal);
+  color: var(--phished-navy);
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+.brand-logo span.sub {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--phished-teal);
+  letter-spacing: normal;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  padding-left: 10px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--phished-teal); }
+.nav-cta {
+  background-color: var(--phished-teal);
+  color: var(--phished-navy) !important;
+  padding: 9px 20px;
+  border-radius: 24px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover {
+  background-color: var(--phished-teal-hover);
+  transform: translateY(-1px);
+}
+
+/* Hero Section */
+.hero {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 24px 64px;
+  text-align: center;
+}
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-light);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-size: clamp(2.1rem, 4.2vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.18;
+  max-width: 22ch;
+  margin: 0 auto 20px;
+}
+.hero h1 span {
+  color: var(--phished-teal);
+}
+.hero p.lead {
+  font-size: 1.12rem;
+  color: var(--text-light);
+  max-width: 64ch;
+  margin: 0 auto 28px;
+}
+.hero-checklist {
+  list-style: none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 34px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.hero-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.check-icon {
+  background: var(--phished-teal);
+  color: var(--phished-navy);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.hero-btn {
+  background-color: var(--phished-teal);
+  color: var(--phished-navy);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 28px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 20px rgba(79, 209, 197, 0.28);
+  transition: all 0.2s;
+}
+.hero-btn:hover {
+  background-color: var(--phished-teal-hover);
+  transform: translateY(-2px);
+}
+
+/* Wave / Section Divider */
+.section-band {
+  background-color: var(--phished-navy-light);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 64px 24px;
+}
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.section-header .eyebrow { color: var(--text-muted); }
+.section-header h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+  font-weight: 800;
+  line-height: 1.25;
+}
+.section-header h2 span { color: var(--phished-teal); }
+.section-header p {
+  color: var(--text-light);
+  max-width: 62ch;
+  margin: 12px auto 0;
+  font-size: 1rem;
+}
+
+/* 3-Column Interactive Pillars (Phished "Grand Frustration" style) */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.pillar-card {
+  background-color: var(--phished-card);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  color: var(--white);
+  font-family: var(--font-body);
+}
+.pillar-card:hover {
+  border-color: var(--phished-teal);
+  transform: translateY(-4px);
+}
+.pillar-card.active {
+  background-color: #1E385D;
+  border: 2px solid var(--phished-teal);
+  box-shadow: 0 10px 28px rgba(79, 209, 197, 0.18);
+  transform: translateY(-3px);
+}
+.stat-badge {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+.badge-coral { background-color: var(--phished-coral); color: var(--white); }
+.badge-teal { background-color: var(--phished-teal); color: var(--phished-navy); }
+
+.pillar-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.pillar-card.active h3 { color: var(--phished-teal); }
+.pillar-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Dynamic Detail Box below Pillars */
+.pillar-detail {
+  background-color: var(--phished-navy);
+  border: 1px solid rgba(79, 209, 197, 0.35);
+  border-radius: 16px;
+  padding: 32px;
+}
+.panel { display: none; }
+.panel.active { display: block; animation: fadeIn 0.25s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.panel h3 {
+  color: var(--phished-teal);
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+.panel ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.panel li {
+  padding-left: 16px;
+  border-left: 3px solid var(--phished-teal);
+  color: var(--text-light);
+  font-size: 0.96rem;
+}
+.panel li strong { color: var(--white); }
+
+/* CV & Growth Roadmap Section */
+.cv-section {
+  padding: 68px 24px;
+}
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.cv-card {
+  background-color: var(--phished-navy-light);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 30px;
+}
+.cv-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+.cv-card-header h3 {
+  font-size: 1.22rem;
+  color: var(--phished-teal);
+}
+.pill-tag {
+  background: rgba(79, 209, 197, 0.14);
+  color: var(--phished-teal);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 14px;
+  white-space: nowrap;
+}
+.cv-card ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.cv-card li {
+  font-size: 0.94rem;
+  color: var(--text-light);
+  padding-left: 14px;
+  border-left: 3px solid rgba(79, 209, 197, 0.5);
+}
+.cv-card li strong { color: var(--white); }
+
+/* Footer */
+footer.phished-footer {
+  background-color: #07111F;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 48px 24px;
+  text-align: center;
+}
+.footer-cta-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.footer-contact {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+.footer-contact a {
+  color: var(--phished-teal);
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer-contact a:hover { text-decoration: underline; }
+.ai-note {
+  background-color: #FFFFFF;
+  color: #0B192C;
+  font-size: 0.85rem;
+  padding: 14px 22px;
+  border-radius: 10px;
+  max-width: 68ch;
+  margin: 28px auto 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 900px) {
+  .pillars-grid, .cv-grid { grid-template-columns: 1fr; }
+  .nav-links a:not(.nav-cta) { display: none; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="main-nav">
+    <a href="#" class="brand-logo">
+      <span class="hook-badge">P</span> PHISHED <span class="sub">Spontane Sollicitatie</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#waarom">Waarom Kris</a>
+      <a href="#cv">CV &amp; Ervaring</a>
+      <a href="#groei">Cybersecurity Ambitie</a>
+      <a href="#contact" class="nav-cta">Plan een demo-gesprek</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="eyebrow">SPONTANE SOLLICITATIE • DEMO &amp; SECURITY AWARENESS</div>
+    <h1>De brug tussen technologie, demo’s en <span>menselijk gedrag</span></h1>
+    <p class="lead">
+      Als ervaren IT Support Specialist (20+ jaar) met een Pedagogisch Bekwaamheidsdiploma wil ik Phished vertegenwoordigen tijdens bedrijfsdemo’s — en tegelijk mijn cybersecurityskills verder actualiseren en verdiepen.
+    </p>
+    <ul class="hero-checklist">
+      <li><span class="check-icon">✓</span> 10+ jaar ervaring met presenteren, doceren en overtuigen van directies en teams.</li>
+      <li><span class="check-icon">✓</span> Praktijkervaring met phishing-triage in Exchange Online en eindgebruikersbegeleiding.</li>
+      <li><span class="check-icon">✓</span> Gedreven om technische cybersecuritykennis continu te actualiseren.</li>
+    </ul>
+    <div>
+      <a href="#contact" class="hero-btn">Kennismakingsgesprek aanvragen</a>
+    </div>
+  </section>
+
+  <!-- Interactive 3 Pillars Section -->
+  <section class="section-band" id="waarom">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">DE MENSELIJKE FACTOR IN CYBERSECURITY</div>
+        <h2>Waarom <span>Kris Paeschuyzen</span> past bij het verhaal van Phished</h2>
+        <p>Klik op een van de drie pijlers om te zien hoe mijn achtergrond aansluit op jullie missie om een zero-incident rate te bereiken.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <button class="pillar-card active" onclick="switchPillar(0)">
+          <div class="stat-badge badge-teal">20+ jr</div>
+          <h3>Overtuigende Demo’s &amp; Didactische Kracht</h3>
+          <p>Complexe cybersecurity helder en boeiend vertalen naar zowel IT-managers als niet-technische directies.</p>
+        </button>
+
+        <button class="pillar-card" onclick="switchPillar(1)">
+          <div class="stat-badge badge-coral">0-risk</div>
+          <h3>Praktijkkennis van Phishing &amp; Eindgebruikers</h3>
+          <p>Ik weet uit ervaring waar medewerkers op klikken — en hoe je gedragsverandering blijvend verankert.</p>
+        </button>
+
+        <button class="pillar-card" onclick="switchPillar(2)">
+          <div class="stat-badge badge-teal">100%</div>
+          <h3>Cybersecurity Skills Actualiseren &amp; Groeien</h3>
+          <p>Sterke technische basis (Bachelor Informatica) met de ambitie om volop door te groeien in moderne threat-analyse.</p>
+        </button>
+      </div>
+
+      <div class="pillar-detail">
+        <div class="panel active" id="pillar-0">
+          <h3>1. Phished vertegenwoordigen tijdens bedrijfsdemo’s</h3>
+          <ul>
+            <li><strong>Ervaren spreker &amp; bruggenbouwer:</strong> Met mijn Pedagogisch Bekwaamheidsdiploma en 10 jaar ervaring als ICT-coördinator ben ik gewend om voor groepen te staan, opleidingen te geven en schoolbesturen of directies te adviseren bij aankooptrajecten.</li>
+            <li><strong>Van techniek naar businesswaarde:</strong> Ik leg moeiteloos uit waarom geautomatiseerde simulaties en gepersonaliseerde micro-trainingen het verschil maken zonder het publiek te verliezen in vakjargon.</li>
+            <li><strong>Representatief &amp; klantgericht:</strong> Nuchter, empathisch en stressbestendig — een betrouwbaar gezicht voor Phished bij kmo’s en grotere ondernemingen.</li>
+          </ul>
+        </div>
+
+        <div class="panel" id="pillar-1">
+          <h3>2. Praktijkervaring met Phishing-triage &amp; Awareness</h3>
+          <ul>
+            <li><strong>Phishing in de praktijk (Vandeputte Safety Experts):</strong> Dagelijks verdachte e-mails en mailflows geanalyseerd in Exchange Online, infecties gecontroleerd en gebruikers direct geholpen na verdachte kliks.</li>
+            <li><strong>Gedragsverandering begeleiden:</strong> Bij eerdere cloud- en SharePoint-migraties heb ik honderden collega’s en leerkrachten succesvol begeleid in nieuwe, veilige digitale werkgewoonten.</li>
+            <li><strong>Kennis van de eindgebruiker:</strong> Na duizenden helpdesktickets ken ik de typische valkuilen van drukbezette medewerkers door en door.</li>
+          </ul>
+        </div>
+
+        <div class="panel" id="pillar-2">
+          <h3>3. Mijn cybersecurityskills actualiseren en uitbreiden</h3>
+          <ul>
+            <li><strong>Stevige fundering:</strong> Professionele Bachelor Informatica (met onderscheiding) en jarenlange praktijkervaring met Microsoft 365, Entra ID (Azure AD), Intune, VPN en netwerkbeheer.</li>
+            <li><strong>Gerichte groei-ambitie:</strong> Ik wil mijn huidige kennis rond mailbeveiliging, social engineering en threat intelligence actief actualiseren en uitbreiden binnen een gespecialiseerd cybersecuritybedrijf als Phished.</li>
+            <li><strong>Leergierig &amp; zelfstartend:</strong> Ik duik graag zelfstandig in nieuwe platforms, AI-tools en security-frameworks om klanten steeds sterker te kunnen adviseren.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV & Experience Section -->
+  <section class="cv-section" id="cv">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">CURRICULUM VITAE IN VOGELVLUCHT</div>
+        <h2>Technische basis &amp; <span>relevante ervaring</span></h2>
+      </div>
+
+      <div class="cv-grid">
+        <div class="cv-card">
+          <div class="cv-card-header">
+            <h3>Werkervaring</h3>
+            <span class="pill-tag">2006 – 2026</span>
+          </div>
+          <ul>
+            <li><strong>IT Support &amp; Workplace Specialist | Van Pelt - Paesen Beton (09/2025 – 01/2026):</strong> Eerste aanspreekpunt bij fusietrajecten, werkplekuitrol, Azure-koppelingen en gebruikerstraining.</li>
+            <li><strong>Service Desk &amp; User Support Specialist | Vandeputte Safety Experts (07/2022 – 01/2025):</strong> Beheer van M365, Exchange Online (phishing- en mailflow-triage), Entra ID, Intune en Zendesk.</li>
+            <li><strong>ICT-Coördinator &amp; Educator | Onderwijs / VTI Zandhoven (09/2011 – 08/2021):</strong> ICT-beleid voor 8 locaties, presentaties voor directies, opleiden van leerkrachten en cloudmigraties.</li>
+            <li><strong>Technisch ICT-Coördinator | CVO Antwerpen &amp; OCMW Antwerpen (2006 – 2011):</strong> Helpdesk en systeembeheer voor honderden eindgebruikers.</li>
+          </ul>
+        </div>
+
+        <div class="cv-card" id="groei">
+          <div class="cv-card-header">
+            <h3>Opleiding &amp; Security Focus</h3>
+            <span class="pill-tag">Bachelor + GPB</span>
+          </div>
+          <ul>
+            <li><strong>Professionele Bachelor Informatica (Met onderscheiding):</strong> CVO Antwerpen — diepgaande analyse- en systeemkennis.</li>
+            <li><strong>Pedagogisch Bekwaamheidsdiploma (GPB):</strong> CVO Antwerpen — de ideale basis voor boeiende demo’s en awareness-sessies.</li>
+            <li><strong>Huidige Security &amp; Cloud Skills:</strong> Exchange Online mailflow/phishing-analyse, Entra ID (toegangsbeheer), Microsoft Intune, OpenVPN en netwerkbasis (TCP/IP, DNS).</li>
+            <li><strong>Groeiplan bij Phished:</strong> Actief bijleren rond geautomatiseerde phishing-simulaties, human risk management en actuele social engineering-technieken.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="phished-footer" id="contact">
+    <div class="footer-cta-title">Zullen we kennismaken?</div>
+    <div class="footer-contact">
+      Kris Paeschuyzen (Sint-Antonius-Zoersel) • Bel <a href="tel:+32475392879">0475 39 28 79</a> • LinkedIn: <a href="https://www.linkedin.com/in/kris-paeschuyzen-3818a3194" target="_blank" rel="noopener">linkedin.com/in/kris-paeschuyzen-3818a3194</a>
+    </div>
+    <p class="ai-note">
+      💡 <strong>Sollicitatie-innovatie:</strong> Deze interactieve webpagina heb ik eigenhandig ontworpen en gebouwd met AI als technische sparringpartner — om te tonen hoe ik technologie inzet om helder te communiceren en continu bij te leren.
+    </p>
+  </footer>
+
+<script>
+function switchPillar(index) {
+  const cards = document.querySelectorAll('.pillar-card');
+  cards.forEach((card, idx) => {
+    card.classList.toggle('active', idx === index);
+  });
+
+  const panels = document.querySelectorAll('.panel');
+  panels.forEach((panel, idx) => {
+    panel.classList.toggle('active', idx === index);
+  });
+}
+</script>
+
+</body>
+</html>
